@@ -1,0 +1,13 @@
+<h1>ALL THE CATs</h1>
+<ul class='cat-list'>
+  <% @cats.each do |cat| %>
+     <li class='cat-list-item'>
+     <h3><%= cat.name  %></h3>
+     <p><%= cat.birth_date  %></p>
+     <p><%= cat.age  %></p>
+     <p><%= cat.sex  %></p>
+     <p><%= cat.color  %></p>
+     <p><%= cat.description  %></p>
+     </li>
+   <% end %>
+</ul>

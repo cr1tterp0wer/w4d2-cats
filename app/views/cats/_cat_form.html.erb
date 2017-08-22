@@ -1,0 +1,55 @@
+<form id="new-cat-form" action='<%= (@cat) ? cat_url : cats_url %>' method=" <%= (@cat) ? 'PATCH' : 'POST' %>">
+  <input name="_method" value="POST"  hidden><br>
+
+  <label for="cat-name">NAME</label>
+  <input id="cat-name"type="text" value="<%=(@cat) ? @cat.name : '' %>" name="cat[name]"  required><br>
+
+  <label for="cat-dob">DOB</label>
+  <input id="cat-dob" type="date" value="<%=(@cat) ? @cat.birth_date : '' %>" name="cat[birth_date]"  required><br>
+
+  <label for="cat-sex">SEX</label>
+  <select id="cat-sex" name="cat[sex]" value="<%= (@cat) ? @cat.sex : '' %>"    required>
+
+    <% if(@cat) %>
+    <option disabled  >--SELECT ONE--</option>
+    <option value="M" <%= @cat.sex == "M" ? "selected" : "" %> >Male</option>
+    <option value="F" <%= @cat.sex == "F" ? "selected" : "" %>>Female</option>
+    <% else %>
+    <option disabled selected >--SELECT ONE--</option>
+    <option value="M"  >Male</option>
+    <option value="F"  >Female</option>
+    <% end %>
+  </select><br>
+
+  <label for="cat-color">COLOR</label>
+  <select id="cat-color" name="cat[color]" required>
+
+    <% if(@cat) %>
+    <% color = @cat.color %>
+
+    <option disabled>--SELECT ONE--</option>
+    <option value="white" <%= color=="white" ? "selected" : "" %> >White</option>
+    <option value="orange"<%= color=="orange" ? "selected" : ""  %> >Orange</option>
+    <option value="black" <%= color=="black" ? "selected" : "" %> >Black</option>
+    <option value="gray" <%= color=="gray" ? "selected" : "" %> >Gray</option>
+    <option value="brown" <%= color=="brown"? "selected" : "" %> >Brown</option>
+    <option value="blue" <%= color=="blue" ? "selected" : "" %> >Blue</option>
+    <% else %>
+    <option disabled selected>--SELECT ONE--</option>
+    <option value="white">White</option>
+    <option value="orange">Orange</option>
+    <option value="black">Black</option>
+    <option value="gray">Gray</option>
+    <option value="brown">Brown</option>
+    <option value="blue">Blue</option>
+    <% end %>
+
+  </select><br>
+
+  <label for="cat-desc">Description</label>
+  <textarea type="text" id="cat-desc" name="cat[description]" value=""><%= (@cat) ? @cat.description : '' %></textarea><br>
+
+  <input type="submit" name="" value="<%= (@cat) ? 'Update Dumb Cat' : 'Create New Stupid Cat' %>">
+
+
+</form>
