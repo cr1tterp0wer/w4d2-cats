@@ -1,0 +1,25 @@
+<form id="new-cat-form" action='<%=catrentalrequests_url%>' method="POST">
+  <input name="_method" value="POST"  hidden><br>
+
+<label for="cat-id">Pick a Cat</label>
+<select id="cat-id" name="CatRentalRequest[cat_id]" value=""    required>
+  <option disabled>--SELECT ONE--</option>
+  <% @cats.each do |cat| %>
+    <option value="<%= cat.id %>"  > <%= cat.name %></option>
+  <%  end %>
+</select><br>
+
+
+  <label for="cat-start-date">START DATE</label>
+  <input id="cat-start-date" type="date" value="" name="CatRentalRequest[start_date]"  required><br>
+
+  <label for="cat-end-date">END DATE</label>
+  <input id="cat-end-date" type="date" value="" name="CatRentalRequest[end_date]"  required><br>
+
+
+
+
+  <input type="submit" name="" value="<%= (@cat) ? 'Update Dumb Cat' : 'Create New Stupid Cat' %>">
+
+
+</form>

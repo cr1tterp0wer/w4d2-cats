@@ -1,0 +1,12 @@
+<h1>Cat Rental Requests</h1>
+
+<ul class='cat-req-list'>
+  <% @reqs.each do |req| %>
+     <li class='cat-req'>
+     <h3><%= req.cat_id  %></h3>
+     <p><%= req.start_date  %></p>
+     <p><%= req.end_date  %></p>
+     <p><%= req.status  %></p>
+     </li>
+   <% end %>
+</ul>
